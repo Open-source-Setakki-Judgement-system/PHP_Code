@@ -46,7 +46,7 @@
 	}
 
 	mysqli_close($conn);
-	$myMessage = $_POST['message'];
+	$myMessage = $_GET['message'];
 //	$myMessage = isset($_GET[‘message’]) ? $_GET[‘message’] : ”;
 	if ($myMessage == ""){
 		$myMessage = "새글이 등록되었습니다.";
