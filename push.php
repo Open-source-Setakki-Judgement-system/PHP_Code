@@ -30,8 +30,8 @@
 	
 
 	//데이터베이스에 접속해서 토큰들을 가져와서 FCM에 발신요청
-	include_once 'config.php';
-	$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+	include('db_setup.php');
+	$conn = mysqli_connect($mysql_hostname, $mysql_username, $mysql_password, $mysql_database);
 
 	$sql = "Select Token From PushAlert";
 
