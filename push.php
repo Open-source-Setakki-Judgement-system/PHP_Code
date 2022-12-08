@@ -52,7 +52,7 @@
 		echo 'No Data';
 	}
 
-	$sql = "DELETE FROM PushAlert WHERE WHERE device_id = $device_id AND Expect_Status = $Expect_Status";
+	$sql = "DELETE FROM PushAlert WHERE device_id = $device_id AND Expect_Status = $Expect_Status";
 	$result = mysqli_query($conn,$sql);
 	mysqli_close($conn);
 
