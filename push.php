@@ -31,26 +31,26 @@
        return $result;
 	}
 
+	$device_id = $_GET['device_id'];
+	$Expect_Status = $_GET['exp_state'];
 	$conn = mysqli_connect($mysql_hostname, $mysql_username, $mysql_password, $mysql_database);
-
-	$sql = "Select Token From PushAlert";
+	$device_id = '0';
+	$sql = "SELECT Token FROM PushAlert WHERE device_id = $device_id AND Expect_Status = $Expect_Status";
 
 	$result = mysqli_query($conn,$sql);
 	$tokens = array();
-	$myMessage ="";
+
 	if(mysqli_num_rows($result) > 0 ){
 
 		while ($row = mysqli_fetch_assoc($result)) {
 			$tokens[] = $row["Token"];
 		}
 	}
-
+	$sql = "DELETE FROM PushAlert WHERE WHERE device_id = $device_id AND Expect_Status = $Expect_Status";
+	$result = mysqli_query($conn,$sql);
 	mysqli_close($conn);
-	$myMessage = $_GET['message'];
-//	$myMessage = isset($_GET[‘message’]) ? $_GET[‘message’] : ”;
-	if ($myMessage == ""){
-		$myMessage = "새글이 등록되었습니다.";
-	}
+
+	$myMessage = "$device_id 상태 $Expect_Status";
 
 	$message = array("message" => $myMessage);
 	$message_status = send_notification($tokens, $message);
