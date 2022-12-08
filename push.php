@@ -4,6 +4,7 @@
 		$url = 'https://fcm.googleapis.com/fcm/send';
 		$fields = array(
 			 'registration_ids' => $tokens,
+			 'priority' => "high",
 			 'data' => $message
 			);
 
