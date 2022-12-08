@@ -40,12 +40,18 @@
 	$result = mysqli_query($conn,$sql);
 	$tokens = array();
 
-	if(mysqli_num_rows($result) > 0 ){
-
-		while ($row = mysqli_fetch_assoc($result)) {
+	if(mysqli_num_rows($result) > 0 )
+	{
+		while ($row = mysqli_fetch_assoc($result))
+		{
 			$tokens[] = $row["Token"];
 		}
 	}
+	else
+	{
+		echo 'No Data';
+	}
+
 	$sql = "DELETE FROM PushAlert WHERE WHERE device_id = $device_id AND Expect_Status = $Expect_Status";
 	$result = mysqli_query($conn,$sql);
 	mysqli_close($conn);
