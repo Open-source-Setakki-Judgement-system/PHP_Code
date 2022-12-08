@@ -34,7 +34,6 @@
 	$device_id = $_GET['device_id'];
 	$Expect_Status = $_GET['exp_state'];
 	$conn = mysqli_connect($mysql_hostname, $mysql_username, $mysql_password, $mysql_database);
-	$device_id = '0';
 	$sql = "SELECT Token FROM PushAlert WHERE device_id = $device_id AND Expect_Status = $Expect_Status";
 
 	$result = mysqli_query($conn,$sql);
