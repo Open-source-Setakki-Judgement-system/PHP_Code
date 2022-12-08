@@ -1,4 +1,6 @@
-<?php 
+<?php
+	include('db_setup.php');
+	include('key_value.php');
 	function send_notification ($tokens, $message)
 	{
 		$url = 'https://fcm.googleapis.com/fcm/send';
@@ -28,10 +30,7 @@
        curl_close($ch);
        return $result;
 	}
-	
 
-	//데이터베이스에 접속해서 토큰들을 가져와서 FCM에 발신요청
-	include('db_setup.php');
 	$conn = mysqli_connect($mysql_hostname, $mysql_username, $mysql_password, $mysql_database);
 
 	$sql = "Select Token From PushAlert";

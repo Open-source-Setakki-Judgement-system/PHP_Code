@@ -1,6 +1,6 @@
 <?php
 include('db_setup.php');
-
+include('key_value.php');
 $conn = new mysqli($mysql_hostname, $mysql_username, $mysql_password, $mysql_database, $mysql_port, $mysql_charset);
 if ($conn->connect_errno) {
    // echo '[Failed.] : '.$connect->connect_error.'';

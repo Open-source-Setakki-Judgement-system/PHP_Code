@@ -1,11 +1,10 @@
 <?php
+ // error_reporting( E_ALL );
+ // ini_set( "display_errors", 1 );
 
-$mysql_database = '127.0.0.1';
+include('db_setup.php');
 $mysql_username = $_GET[id];
 $mysql_password = $_GET[pw];
-$mysql_database = 'OSJ';
-$mysql_port = '3306';
-$mysql_charset = 'UTF8';
 $device_id = $_GET[device_id];
 $state = $_GET[state];
 
